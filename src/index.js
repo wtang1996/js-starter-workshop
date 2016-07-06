@@ -2,9 +2,15 @@ import $ from 'jquery';
 
 import './style.scss';
 
-let sec = 0;
+function* counter() {
+  let sec = 0;
+  while (sec < 1000) {
+    yield sec++;
+  }
+}
+
+var gen = counter();
 
 setInterval(() => {
-  sec++;
-  $('#main').html('You have been on this page for '+ sec + ' seconds');
+  $('#main').html('You have been on this page for ' + gen.next().value + ' seconds');
 }, 1000);
