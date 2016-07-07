@@ -9,7 +9,7 @@ function* counter() {
   }
 }
 
-var gen = counter();
+const gen = counter();
 
 setInterval(() => {
   $('#main').html('You have been on this page for ' + gen.next().value + ' seconds');
